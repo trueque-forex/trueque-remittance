@@ -1,16 +1,25 @@
-# Trueque Web
+## 🔁 Reproducibility Summary
 
-Frontend interface for the Trueque protocol—designed for instant, transparent, and fair remittance across global corridors.
+This release (`v0.2-fallback-ci`) validates Trueque’s fallback UX, audit schema, and sender/receiver dignity logic across breach scenarios.
 
-## Features
+### ✅ Included:
+- Fallback UX simulation with override acknowledgment
+- Corridor selector with fee and SLA preview
+- Audit log preview per corridor (via `audit_log.json`)
+- CI-verified test harness for SLA breach and fee threshold
+- Modular landing page scaffold (`LandingPage.tsx`)
+- Reproducibility badge in footer
 
-- Audit-grade fallback UX
-- Sender/receiver dignity guarantees
-- SLA breach detection and fee attribution
-- Modular architecture for reproducibility
+### 🧪 Test Harness:
+Run `npm test` to validate:
+- SLA breach triggers fallback
+- Fee threshold logic per corridor
+- Audit log output matches schema
 
-## Getting Started
+### 🌐 Deployment:
+Live at [trueque.vercel.app](https://trueque.vercel.app) *(example—replace with your actual URL)*  
+CI badge: ![CI](https://img.shields.io/github/actions/workflow/status/your-org/trueque/ci.yml)
 
-```bash
-npm install
-npm run dev
+---
+
+Built with clarity, empathy, and audit-grade transparency.
