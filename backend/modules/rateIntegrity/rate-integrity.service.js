@@ -1,12 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.RateIntegrityService = void 0;
-const common_1 = require("@nestjs/common");
-const rate_integrity_entity_1 = require("./rate_integrity.entity");
-@(0, common_1.Injectable)()
-class RateIntegrityService {
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+let RateIntegrityService = class RateIntegrityService {
     logRateIntegritySplit(senderView, receiverView) {
-        const log = new rate_integrity_entity_1.RateIntegrityLog();
+        const log = new RateIntegrityLog();
         log.fx_rate_market = senderView.fx_rate_market;
         log.spread = senderView.spread;
         log.bid_rate = senderView.bid_rate;
@@ -26,6 +26,8 @@ class RateIntegrityService {
         log.fx_integrity_message = `Market rate anchored at ${senderView.fx_rate_market}. Spread ±${(senderView.spread * 100).toFixed(2)}%. Fees split fairly.`;
         return log;
     }
-}
-exports.RateIntegrityService = RateIntegrityService;
-//# sourceMappingURL=rate-integrity.service.js.map
+};
+RateIntegrityService = __decorate([
+    Injectable()
+], RateIntegrityService);
+export { RateIntegrityService };

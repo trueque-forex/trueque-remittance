@@ -60,4 +60,6 @@ app.*.map.json
 # Node-related
 node_modules
 dist
-dist-ssr
+dist-ssr        modified:   node_modules/typescript/package.json
+
+no changes added to commit (use "git add" and/or "git commit -a")

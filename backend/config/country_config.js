@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.COUNTRY_CONFIGS = void 0;
-exports.COUNTRY_CONFIGS = [
+export const COUNTRY_CONFIGS = [
     {
         country_code: 'AR',
         country_name: 'Argentina',
@@ -48,4 +45,3 @@ exports.COUNTRY_CONFIGS = [
         kyc_level_required: 1
     }
 ];
-//# sourceMappingURL=country_config.js.map

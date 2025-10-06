@@ -1,10 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.RateIntegrityService = void 0;
-const common_1 = require("@nestjs/common");
-const uuid_1 = require("uuid");
-@(0, common_1.Injectable)()
-class RateIntegrityService {
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+let RateIntegrityService = class RateIntegrityService {
     calculateEffectiveRate(paid, received) {
         return +(paid / received).toFixed(2);
     }
@@ -12,7 +12,7 @@ class RateIntegrityService {
         return `Match anchored to market rate ${fx_rate_market}. Divergence (${effective_A} vs ${effective_B}) reflects fees under ${country_model} model—no FX manipulation.`;
     }
     logRateIntegrity(fx_rate_market, amount_paid_A, amount_received_A, amount_paid_B, amount_received_B, fee_components) {
-        const match_id = (0, uuid_1.v4)();
+        const match_id = uuidv4();
         const effective_A = this.calculateEffectiveRate(amount_paid_A, amount_received_A);
         const effective_B = this.calculateEffectiveRate(amount_paid_B, amount_received_B);
         const divergence = +(effective_A - effective_B).toFixed(2);
@@ -34,6 +34,8 @@ class RateIntegrityService {
             fx_integrity_message,
         };
     }
-}
-exports.RateIntegrityService = RateIntegrityService;
-//# sourceMappingURL=rate-integrity.service.js.map
+};
+RateIntegrityService = __decorate([
+    Injectable()
+], RateIntegrityService);
+export { RateIntegrityService };

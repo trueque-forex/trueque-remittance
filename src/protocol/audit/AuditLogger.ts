@@ -1,10 +1,22 @@
-import { appendFileSync } from "fs";
-import { getAuditLogPath } from "./LogRotator";
-import { MatchAuditEntry } from "./AuditSchema";
+export type AuditEntry = {
+  timestamp: number;
+  corridorId: string;
+  breachFlags: string[];
+  fallbackUsed: boolean;
+  feeAttribution: {
+    feeAmount: number;
+    slaSeconds: number;
+    bufferSeconds: number;
+    fallbackTriggered: boolean;
+  };
+  userDignityPreserved: boolean;
+  notes?: string;
+};
 
-export function logMatchAudit(entry: MatchAuditEntry): void {
-  const logPath = getAuditLogPath(entry.corridorId);
-  const line = JSON.stringify(entry) + "\n";
-  appendFileSync(logPath, line);
-  console.log(`✅ Match audit written to ${logPath}`);
+export function logAuditEntry(entry: AuditEntry): void {
+  console.log('[Audit]', JSON.stringify(entry, null, 2));
+}
+
+export function exportAuditLog(entries: AuditEntry[]): string {
+  return entries.map(e => JSON.stringify(e)).join('\n');
 }

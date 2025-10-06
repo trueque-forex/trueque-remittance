@@ -1,47 +1,110 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.RateIntegrityLog = void 0;
-const typeorm_1 = require("typeorm");
-@(0, typeorm_1.Entity)()
-class RateIntegrityLog {
-    @(0, typeorm_1.PrimaryGeneratedColumn)()
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+let RateIntegrityLog = class RateIntegrityLog {
     id;
-    @(0, typeorm_1.Column)('decimal')
     fx_rate_market;
-    @(0, typeorm_1.Column)('decimal')
     spread;
-    @(0, typeorm_1.Column)('decimal')
     bid_rate;
-    @(0, typeorm_1.Column)('decimal')
     ask_rate;
-    @(0, typeorm_1.Column)('decimal')
     effective_rate_user_A;
-    @(0, typeorm_1.Column)('decimal')
     effective_rate_user_B;
-    @(0, typeorm_1.Column)('decimal')
     trueque_fee_A;
-    @(0, typeorm_1.Column)('decimal')
     transmitter_fee_A;
-    @(0, typeorm_1.Column)('decimal')
     delivery_premium_A;
-    @(0, typeorm_1.Column)('decimal')
     total_fee_A;
-    @(0, typeorm_1.Column)('varchar')
     country_model_A;
-    @(0, typeorm_1.Column)('decimal')
     trueque_fee_B;
-    @(0, typeorm_1.Column)('decimal')
     transmitter_fee_B;
-    @(0, typeorm_1.Column)('decimal')
     delivery_premium_B;
-    @(0, typeorm_1.Column)('decimal')
     total_fee_B;
-    @(0, typeorm_1.Column)('varchar')
     country_model_B;
-    @(0, typeorm_1.Column)('text')
     fx_integrity_message;
-    @(0, typeorm_1.Column)({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     created_at;
-}
-exports.RateIntegrityLog = RateIntegrityLog;
-//# sourceMappingURL=rate-integrity.entity.js.map
+};
+__decorate([
+    PrimaryGeneratedColumn(),
+    __metadata("design:type", Number)
+], RateIntegrityLog.prototype, "id", void 0);
+__decorate([
+    Column('decimal'),
+    __metadata("design:type", Number)
+], RateIntegrityLog.prototype, "fx_rate_market", void 0);
+__decorate([
+    Column('decimal'),
+    __metadata("design:type", Number)
+], RateIntegrityLog.prototype, "spread", void 0);
+__decorate([
+    Column('decimal'),
+    __metadata("design:type", Number)
+], RateIntegrityLog.prototype, "bid_rate", void 0);
+__decorate([
+    Column('decimal'),
+    __metadata("design:type", Number)
+], RateIntegrityLog.prototype, "ask_rate", void 0);
+__decorate([
+    Column('decimal'),
+    __metadata("design:type", Number)
+], RateIntegrityLog.prototype, "effective_rate_user_A", void 0);
+__decorate([
+    Column('decimal'),
+    __metadata("design:type", Number)
+], RateIntegrityLog.prototype, "effective_rate_user_B", void 0);
+__decorate([
+    Column('decimal'),
+    __metadata("design:type", Number)
+], RateIntegrityLog.prototype, "trueque_fee_A", void 0);
+__decorate([
+    Column('decimal'),
+    __metadata("design:type", Number)
+], RateIntegrityLog.prototype, "transmitter_fee_A", void 0);
+__decorate([
+    Column('decimal'),
+    __metadata("design:type", Number)
+], RateIntegrityLog.prototype, "delivery_premium_A", void 0);
+__decorate([
+    Column('decimal'),
+    __metadata("design:type", Number)
+], RateIntegrityLog.prototype, "total_fee_A", void 0);
+__decorate([
+    Column('varchar'),
+    __metadata("design:type", String)
+], RateIntegrityLog.prototype, "country_model_A", void 0);
+__decorate([
+    Column('decimal'),
+    __metadata("design:type", Number)
+], RateIntegrityLog.prototype, "trueque_fee_B", void 0);
+__decorate([
+    Column('decimal'),
+    __metadata("design:type", Number)
+], RateIntegrityLog.prototype, "transmitter_fee_B", void 0);
+__decorate([
+    Column('decimal'),
+    __metadata("design:type", Number)
+], RateIntegrityLog.prototype, "delivery_premium_B", void 0);
+__decorate([
+    Column('decimal'),
+    __metadata("design:type", Number)
+], RateIntegrityLog.prototype, "total_fee_B", void 0);
+__decorate([
+    Column('varchar'),
+    __metadata("design:type", String)
+], RateIntegrityLog.prototype, "country_model_B", void 0);
+__decorate([
+    Column('text'),
+    __metadata("design:type", String)
+], RateIntegrityLog.prototype, "fx_integrity_message", void 0);
+__decorate([
+    Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' }),
+    __metadata("design:type", Date)
+], RateIntegrityLog.prototype, "created_at", void 0);
+RateIntegrityLog = __decorate([
+    Entity()
+], RateIntegrityLog);
+export { RateIntegrityLog };

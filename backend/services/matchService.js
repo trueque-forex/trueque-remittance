@@ -1,26 +1,22 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.MatchService = void 0;
-const common_1 = require("@nestjs/common");
-const rateSpread_service_1 = require("../modules/rateSpread/rateSpread.service");
-const rate_integrity_service_1 = require("../modules/rateIntegrity/rate-integrity.service");
-const notification_service_1 = require("../modules/notifications/notification.service");
-const typeorm_1 = require("@nestjs/typeorm");
-const typeorm_2 = require("typeorm");
-const rate_integrity_entity_1 = require("../modules/rateIntegrity/rate_integrity.entity");
-const match_entity_1 = require("../modules/match/match.entity");
-@(0, common_1.Injectable)()
-class MatchService {
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+let MatchService = class MatchService {
     rateSpreadService;
     rateIntegrityService;
     notificationService;
     integrityRepo;
     matchRepo;
-    constructor(rateSpreadService, rateIntegrityService, notificationService, 
-    @(0, typeorm_1.InjectRepository)(rate_integrity_entity_1.RateIntegrityLog)
-    integrityRepo, 
-    @(0, typeorm_1.InjectRepository)(match_entity_1.Match)
-    matchRepo) {
+    constructor(rateSpreadService, rateIntegrityService, notificationService, integrityRepo, matchRepo) {
         this.rateSpreadService = rateSpreadService;
         this.rateIntegrityService = rateIntegrityService;
         this.notificationService = notificationService;
@@ -95,6 +91,11 @@ class MatchService {
             deadline: matchDeadline
         });
     }
-}
-exports.MatchService = MatchService;
-//# sourceMappingURL=matchService.js.map
+};
+MatchService = __decorate([
+    Injectable(),
+    __param(3, InjectRepository(RateIntegrityLog)),
+    __param(4, InjectRepository(Match)),
+    __metadata("design:paramtypes", [Object, Object, Object, Object, Object])
+], MatchService);
+export { MatchService };

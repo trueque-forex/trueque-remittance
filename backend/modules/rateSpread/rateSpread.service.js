@@ -1,13 +1,13 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.RateSpreadService = void 0;
-const common_1 = require("@nestjs/common");
-const country_config_1 = require("../../config/country_config");
-@(0, common_1.Injectable)()
-class RateSpreadService {
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+let RateSpreadService = class RateSpreadService {
     getSpreadForCorridor(senderCountry, receiverCountry) {
-        const senderConfig = (0, country_config_1.getCountryConfig)(senderCountry);
-        const receiverConfig = (0, country_config_1.getCountryConfig)(receiverCountry);
+        const senderConfig = getCountryConfig(senderCountry);
+        const receiverConfig = getCountryConfig(receiverCountry);
         // Pull FX anchor rate from trusted source (mocked here)
         const fxRateMarket = this.getMarketRate(senderCountry, receiverCountry);
         // Determine corridor asymmetry
@@ -36,6 +36,8 @@ class RateSpreadService {
             return 1.35;
         return 1;
     }
-}
-exports.RateSpreadService = RateSpreadService;
-//# sourceMappingURL=rateSpread.service.js.map
+};
+RateSpreadService = __decorate([
+    Injectable()
+], RateSpreadService);
+export { RateSpreadService };
